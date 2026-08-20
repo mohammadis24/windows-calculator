@@ -1,12 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2 class="name">Calculator</h2>
+        <div class="calc-button">
+          <div class="windows-button minimize">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              version="1.1"
+            >
+              <title>minimize_line</title>
+              <g
+                id="页面-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g id="System" transform="translate(-192.000000, -192.000000)">
+                  <g
+                    id="minimize_line"
+                    transform="translate(192.000000, 192.000000)"
+                  >
+                    <path
+                      d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z"
+                      id="MingCute"
+                      fill-rule="nonzero"
+                    ></path>
+                    <path
+                      d="M3,12 C3,11.4477 3.44772,11 4,11 L20,11 C20.5523,11 21,11.4477 21,12 C21,12.5523 20.5523,13 20,13 L4,13 C3.44772,13 3,12.5523 3,12 Z"
+                      id="路径"
+                      fill="#09244B"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="windows-button maximize">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M22 5C22 3.34315 20.6569 2 19 2H5C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H19C20.6569 22 22 20.6569 22 19V5ZM20 5C20 4.44772 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44772 20 5 20H19C19.5523 20 20 19.5523 20 19V5Z"
+                fill="#0F0F0F"
+              />
+            </svg>
+          </div>
+          <div class="windows-button close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"
+                fill="#0F0F0F"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <button class="icon-btn menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="800px"
+            height="800px"
+            viewBox="-0.5 0 25 25"
+            fill="none"
+          >
+            <path
+              d="M2 12.32H22"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2 18.32H22"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2 6.32001H22"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <span class="mode">Standard</span>
+        <button class="icon-btn keep-on-top">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="800px"
+            height="800px"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M18 20.75H12C11.8011 20.75 11.6103 20.671 11.4697 20.5303C11.329 20.3897 11.25 20.1989 11.25 20C11.25 19.8011 11.329 19.6103 11.4697 19.4697C11.6103 19.329 11.8011 19.25 12 19.25H18C18.3315 19.25 18.6495 19.1183 18.8839 18.8839C19.1183 18.6495 19.25 18.3315 19.25 18V6C19.25 5.66848 19.1183 5.35054 18.8839 5.11612C18.6495 4.8817 18.3315 4.75 18 4.75H6C5.66848 4.75 5.35054 4.8817 5.11612 5.11612C4.8817 5.35054 4.75 5.66848 4.75 6V12C4.75 12.1989 4.67098 12.3897 4.53033 12.5303C4.38968 12.671 4.19891 12.75 4 12.75C3.80109 12.75 3.61032 12.671 3.46967 12.5303C3.32902 12.3897 3.25 12.1989 3.25 12V6C3.25 5.27065 3.53973 4.57118 4.05546 4.05546C4.57118 3.53973 5.27065 3.25 6 3.25H18C18.7293 3.25 19.4288 3.53973 19.9445 4.05546C20.4603 4.57118 20.75 5.27065 20.75 6V18C20.75 18.7293 20.4603 19.4288 19.9445 19.9445C19.4288 20.4603 18.7293 20.75 18 20.75Z"
+              fill="#000000"
+            />
+            <path
+              d="M16 12.75C15.8019 12.7474 15.6126 12.6676 15.4725 12.5275C15.3324 12.3874 15.2526 12.1981 15.25 12V8.75H12C11.8011 8.75 11.6103 8.67098 11.4697 8.53033C11.329 8.38968 11.25 8.19891 11.25 8C11.25 7.80109 11.329 7.61032 11.4697 7.46967C11.6103 7.32902 11.8011 7.25 12 7.25H16C16.1981 7.25259 16.3874 7.33244 16.5275 7.47253C16.6676 7.61263 16.7474 7.80189 16.75 8V12C16.7474 12.1981 16.6676 12.3874 16.5275 12.5275C16.3874 12.6676 16.1981 12.7474 16 12.75Z"
+              fill="#000000"
+            />
+            <path
+              d="M11.5 13.25C11.3071 13.2352 11.1276 13.1455 11 13C10.877 12.8625 10.809 12.6845 10.809 12.5C10.809 12.3155 10.877 12.1375 11 12L15.5 7.5C15.6422 7.36752 15.8302 7.29539 16.0245 7.29882C16.2188 7.30225 16.4042 7.38096 16.5416 7.51838C16.679 7.65579 16.7578 7.84117 16.7612 8.03548C16.7646 8.22978 16.6925 8.41782 16.56 8.56L12 13C11.8724 13.1455 11.6929 13.2352 11.5 13.25Z"
+              fill="#000000"
+            />
+            <path
+              d="M8 20.75H5C4.53668 20.7474 4.09309 20.5622 3.76546 20.2345C3.43784 19.9069 3.25263 19.4633 3.25 19V16C3.25263 15.5367 3.43784 15.0931 3.76546 14.7655C4.09309 14.4378 4.53668 14.2526 5 14.25H8C8.46332 14.2526 8.90691 14.4378 9.23454 14.7655C9.56216 15.0931 9.74738 15.5367 9.75 16V19C9.74738 19.4633 9.56216 19.9069 9.23454 20.2345C8.90691 20.5622 8.46332 20.7474 8 20.75ZM5 15.75C4.9337 15.75 4.87011 15.7763 4.82322 15.8232C4.77634 15.8701 4.75 15.9337 4.75 16V19C4.75 19.0663 4.77634 19.1299 4.82322 19.1768C4.87011 19.2237 4.9337 19.25 5 19.25H8C8.0663 19.25 8.12989 19.2237 8.17678 19.1768C8.22366 19.1299 8.25 19.0663 8.25 19V16C8.25 15.9337 8.22366 15.8701 8.17678 15.8232C8.12989 15.7763 8.0663 15.75 8 15.75H5Z"
+              fill="#000000"
+            />
+          </svg>
+        </button>
+        <button class="icon-btn history-toggle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#000000"
+            width="800px"
+            height="800px"
+            viewBox="-1 0 19 19"
+            class="cf-icon-svg"
+          >
+            <path
+              d="M16.417 9.5a7.919 7.919 0 0 1-15.212 3.082A7.87 7.87 0 0 1 .584 9.5a.554.554 0 0 1 1.109 0 6.81 6.81 0 0 0 13.081 2.65 6.811 6.811 0 0 0-9.66-8.557 6.859 6.859 0 0 0-1.847 1.554h1.276a.554.554 0 0 1 0 1.108h-2.61a.554.554 0 0 1-.555-.554V3.09a.554.554 0 0 1 1.109 0v1.262A7.898 7.898 0 0 1 8.5 1.583 7.911 7.911 0 0 1 16.417 9.5zm-5.181 3a.554.554 0 0 1-.784 0l-2.42-2.42a.552.552 0 0 1-.22-.441V5.168a.554.554 0 1 1 1.11 0v4.234l2.314 2.315a.554.554 0 0 1 0 .784z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="screen">
+        <output class="result">0</output>
+      </div>
+      <div class="memory">
+        <button class="memory-btn">MC</button>
+        <button class="memory-btn">MR</button>
+        <button class="memory-btn">M+</button>
+        <button class="memory-btn">M−</button>
+        <button class="memory-btn">MS</button>
+        <button class="memory-btn">M▼</button>
+      </div>
+      <div class="calc-keypad">
+        <button class="key function">%</button>
+        <button class="key function">CE</button>
+        <button class="key function">C</button>
+        <button class="key function">⌫</button>
+        <button class="key function">1/x</button>
+        <button class="key function">x²</button>
+        <button class="key function">²√x</button>
+        <button class="key operator">÷</button>
+        <button class="key number">7</button>
+        <button class="key number">8</button>
+        <button class="key number">9</button>
+        <button class="key operator">×</button>
+        <button class="key number">4</button>
+        <button class="key number">5</button>
+        <button class="key number">6</button>
+        <button class="key operator">−</button>
+        <button class="key number">1</button>
+        <button class="key number">2</button>
+        <button class="key number">3</button>
+        <button class="key operator">+</button>
+        <button class="key function">+/−</button>
+        <button class="key number">0</button>
+        <button class="key number">.</button>
+        <button class="key equals">=</button>
+      </div>
+      <div class="aside">
+        <div class="history-tabs">
+          <button class="history-tab history-active">History</button>
+          <button class="history-tab memory-inactive">Memory</button>
+        </div>
+        <div class="history-content">
+          <p>There's no history yet</p>
+        </div>
+        <div class="memory-content hidden">
+          <p>There's nothing saved in memory</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

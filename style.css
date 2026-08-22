@@ -294,6 +294,10 @@ button {
     grid-area: 4 / 1;
   }
 
+  .memory-btn-arrow {
+    display: none;
+  }
+
   .percent {
     grid-area: 1 / 1; /*23- why writing them like this? 1 / 1?*/
   }

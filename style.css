@@ -153,6 +153,13 @@ button {
 .memory-btn-r,
 .memory-btn-arrow {
   color: #b6b6b6;
+  position: relative;
+}
+
+span.arrow {
+  font-size: 10px;
+  position: absolute;
+  top: 2px;
 }
 
 /* =========================

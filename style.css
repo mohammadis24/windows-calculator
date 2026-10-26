@@ -19,7 +19,8 @@ button {
   width: 100vw;
   height: 100vh;
   min-width: 456px;
-  min-height: 600px;
+  /* min-height: 600px; */
+  min-height: 410px; /*for scroll*/
   display: flex;
   flex-direction: column;
   background-color: #efefef;
@@ -133,7 +134,7 @@ button {
    MEMORY
    ========================= */
 
-.memory {
+/* .memory {
   height: 48px;
   display: flex;
   flex-shrink: 0;
@@ -141,9 +142,19 @@ button {
   justify-content: flex-start;
   gap: 80px;
   padding: 0 12px;
+} */
+
+.memory {
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+  padding: 0 12px;
 }
 
 .memory-btn {
+  width: 100%;
   height: 48px;
   font-size: 20px;
   font-weight: 600;
@@ -231,9 +242,12 @@ span.arrow {
 
 .aside {
   display: none;
-  width: 320px;
-  flex: 0 0 320px;
+  flex: 2 1 0; /*new**/
+  min-width: 0; /*new**/
+  /* width: 320px; */
+  /* flex: 0 0 320px; */
   min-height: 0;
+  overflow: hidden;
   border-left: 1px solid #d5d5d5;
 }
 
@@ -241,16 +255,20 @@ span.arrow {
   height: 60px;
   display: flex;
   align-items: center;
-  gap: 28px;
-  padding-left: 18px;
+  gap: clamp(12px, 2vw, 28px); /**new*/
+  padding-left: clamp(10px, 1.5vw, 18px); /**new*/
+  /* gap: 28px; */
+  /* padding-left: 18px; */
 }
 
 .history-tab {
   height: 60px;
   background: transparent; /*?*/
-  font-size: 16px;
+  /* font-size: 16px; */
+  /* font-size: clamp(13px, 1.3vw, 16px); *new */
   font-weight: 600;
   position: relative; /*?*/
+  white-space: nowrap; /**new*/
 }
 
 .history-active::after {
@@ -265,7 +283,8 @@ span.arrow {
 
 .history-content,
 .memory-content {
-  padding: 10px 18px;
+  /* padding: 10px 18px; */
+  padding: 10px clamp(10px, 1.5vw, 18px); /**new*/
   font-size: 14px;
   font-weight: 600;
 }
@@ -275,7 +294,8 @@ span.arrow {
 }
 
 .calculator-left {
-  flex: 1;
+  /* flex: 1; */
+  flex: 3 1 0; /**new*/
   min-width: 0;
   min-height: 0;
   display: flex;
@@ -285,20 +305,93 @@ span.arrow {
 /* =========================
    LARGE CALCULATOR
    ========================= */
+/*----------------new--------------------*/
 
-@media (min-width: 850px) and (min-height: 650px) {
-  .calc-keypad {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-  }
+/* =========================
+   RESPONSIVE LAYOUT
+   ========================= */
 
+/* Default / compact layout:
+   4 columns and 6 rows */
+.calc-keypad {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+}
+
+.cube {
+  display: none;
+}
+
+/* Show the M▼ button in the compact layout */
+.memory.memory-btn-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   HISTORY PANEL
+   ========================= */
+
+/* Wide layout: keep History at 320px */
+@media (min-width: 1024px) {
   .aside {
     display: block;
+    flex: 0 0 320px;
+    min-width: 0;
   }
 
-  .cube {
-    display: flex;
-    grid-area: 4 / 1;
+  .calculator-left {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+/* Intermediate layout: History becomes narrower */
+@media (min-width: 626px) and (max-width: 1023px) {
+  .aside {
+    display: block;
+    flex: 0 1 clamp(200px, 43vw, 320px);
+    min-width: 0;
+  }
+
+  .calculator-left {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .history-tabs {
+    gap: clamp(8px, 1.5vw, 20px);
+    padding-left: clamp(8px, 1.5vw, 18px);
+  }
+
+  /* .history-tab {
+    font-size: clamp(12px, 1.5vw, 16px);
+  } */
+}
+
+/* Narrow layout: hide History */
+@media (max-width: 625px) {
+  .aside {
+    display: none;
+  }
+
+  .calculator-left {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+/* =========================
+   LARGE KEYPAD LAYOUT
+   ========================= */
+
+/* Five columns and five rows only when BOTH
+   width and height requirements are met */
+@media (min-width: 1024px) and (min-height: 620px) {
+  .calc-keypad {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
   }
 
   .memory-btn-arrow {
@@ -306,7 +399,7 @@ span.arrow {
   }
 
   .percent {
-    grid-area: 1 / 1; /*23- why writing them like this? 1 / 1?*/
+    grid-area: 1 / 1;
   }
 
   .clear-entry {
@@ -342,6 +435,7 @@ span.arrow {
   }
 
   .cube {
+    display: flex;
     grid-area: 4 / 1;
   }
 
@@ -355,5 +449,20 @@ span.arrow {
 
   .equals {
     grid-area: 5 / 5;
+  }
+}
+
+/* =========================
+   VERTICAL SCROLL
+   ========================= */
+
+@media (max-height: 409px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .container {
+    height: auto;
+    min-height: 410px;
   }
 }
